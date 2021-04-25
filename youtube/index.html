@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <title>Teach Online - Youtube</title>
+      <meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Favicon -->
+        <link rel="icon" type="image/png" href="//wbweb.co.in/assets/images/favicon.png">
+
+      <!-- Onpage SEO -->
+        <meta name="title" content="">
+        <meta name="keyword" content="">
+        <meta name="description" content="">
+
+      <!-- Dependencies -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.css" id="theme-styles">
+        <link rel="stylesheet" href="../main.css">
+
+
+  </head>
+  <body>
+    <div class="container">
+
+      <button id="sign-in-or-out-button"
+              style="margin-left: 25px">Sign In/Authorize</button>
+      <button id="revoke-access-button"
+              style="display: none; margin-left: 25px">Revoke access</button>
+
+      <div id="auth-status" style="display: inline; padding-left: 25px"></div><hr>
+
+      <script async defer src="https://apis.google.com/js/api.js"
+              onload="this.onload=function(){};handleClientLoad()"
+              onreadystatechange="if (this.readyState === 'complete') this.onload()">
+      </script>
+    </div>
+    <div class="modalspin"><!-- Pre-Loader --></div>
+  </body>
+  <!-- General Dependencies -->
+  <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script async defer src="https://apis.google.com/js/api.js"
+          onload="this.onload=function(){};handleClientLoad()"
+          onreadystatechange="if (this.readyState === 'complete') this.onload()">
+  </script>
+  <script src="auth.js"></script>
+  <script src="../config.js"></script>
+
+  <!-- Classroom Dependencies -->
+  <script src="js/liveBroadcasts.js"></script>
+</html>

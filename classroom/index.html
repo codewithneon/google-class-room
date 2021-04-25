@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Teach Online - Classroom</title>
+    <meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+    <link rel="icon" type="image/png" href="//wbweb.co.in/assets/images/favicon.png">
+
+  <!-- Onpage SEO -->
+    <meta name="title" content="">
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+
+  <!-- Dependencies -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.css" id="theme-styles">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="../main.css">
+
+  <!-- Theme -->
+    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="../css/util.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+
+    <style media="screen">
+    .container-dashboard {
+      width: 100%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      padding: 100px 15px 15px 15px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .container-dashboard::before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(93,84,240,0.5);
+      background: -webkit-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+      background: -o-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+      background: -moz-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+      background: linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+      pointer-events: none;
+    }
+
+      .container-classroom {
+        width: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        padding: 0px 15px 15px 15px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .container-classroom::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(93,84,240,0.5);
+        background: -webkit-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+        background: -o-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+        background: -moz-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+        background: linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+        pointer-events: none;
+      }
+
+      .course-container {
+        width: 100%;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+        -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+        -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      .chart-container {
+        width: 100%
+      }
+
+      .course-container{
+        height: 460px;
+      }
+
+      .login100-button-a {
+        font-size: 16px;
+        border-radius: 50%;
+        color: #3b5998;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        background-color: #ffffff00;
+        margin: 5px;
+
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        -webkit-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        cursor: pointer;
+      }
+
+      .login100-button-a:hover, .login100-button-a:focus, .login100-button-a:active {
+        box-shadow: -1px 1px 18px 0 #007bffa8;
+        -moz-box-shadow: -1px 1px 18px 0 #007bffa8;
+        -webkit-box-shadow: -1px 1px 18px 0 #007bffa8;
+        -o-box-shadow: -1px 1px 18px 0 #007bffa8;
+        -ms-box-shadow: -1px 1px 18px 0 #007bffa8;
+
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+        transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+      }
+
+      .class-code {
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-size: 14px;
+        padding: 2px 8px;
+        border-radius: 20px;
+        color: white;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        -webkit-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        cursor: pointer;
+      }
+
+      .class-code:hover, .class-code:focus, .class-code:active {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+        transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+      }
+
+      .dropdown-menu.show {
+        box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.42);
+        border: 0;
+      }
+
+      dropdown-item:focus, .dropdown-item:hover {
+        background-color: rgba(115, 127, 140, 0.25);
+      }
+
+      .card-title{
+        font-weight: 600;
+      }
+
+      .sticky-top {
+        position: fixed;
+        top: 0;
+        z-index: 1020;
+      }
+      .navbar {
+        padding: 15px;
+        width: 100%;
+      }
+      .navcard{
+        width=auto: ;
+        width: 100%;
+        background: #fffffff0;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      }
+      .h5-responsive{
+        line-height: 50px;
+      }
+
+      .accordion>.card>.card-header {
+        border-radius: 0;
+        padding: 2px;
+        margin-bottom: -10px;
+        margin-top: -10px;
+      }
+
+      @media screen and (max-width: 375px) {
+        .login100-form-title {
+          font-size: 22px;
+        }
+        p{
+          font-size: 8px;
+        }
+        h5{
+          font-size: 14px;
+        }
+        .class-code{
+          font-size: 8px;
+        }
+      }
+
+      @media screen and (min-width: 375px) {
+        .login100-form-title {
+          font-size: 28px;
+        }
+        p{
+          font-size: 10px;
+        }
+        h5{
+          font-size: 18px;
+        }
+        .class-code{
+          font-size: 10px;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .login100-form-title {
+          font-size: 34px;
+        }
+        p{
+          font-size: 12px;
+        }
+        h5{
+          font-size: 22px;
+        }
+        .class-code{
+          font-size: 12px;
+        }
+      }
+
+      @media screen and (min-width: 992px) {
+        .login100-form-title {
+          font-size: 40px;
+        }
+        p{
+          font-size: 16px;
+        }
+        h5{
+          font-size: 24px;
+        }
+        .class-code{
+          font-size: 14px;
+        }
+      }
+
+      .img-very-small{
+        width: 18px;
+        margin-right: 3px;
+      }
+      .popUp{
+        cursor: pointer;
+        margin-top: 5px;
+      }
+      .course-accordion-body{
+        padding: 1rem 0.25rem 1rem 0.5rem;
+      }
+
+      p {
+        padding-top: 0;
+        line-height: 22px;
+        color: #666666;
+        margin: 0px;
+        vertical-align: middle;
+      }
+
+      .small-span{
+        font-size: 18px;
+        font-weight: 400;
+      }
+
+      .popUp:hover{
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body class="loading">
+    <div id="nav">
+
+    </div>
+    <div id="app">
+
+    </div>
+    <div class="modalspin"><!-- Pre-Loader --></div>
+    <div class="modal fade" id="apimodal" tabindex="-1" role="dialog">
+  </body>
+    <!-- General Dependencies -->
+    <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="auth.js"></script>
+    <script src="../config.js"></script>
+    <script src="../main.js"></script>
+    <script src="app.js"></script>
+
+
+    <!-- theme -->
+  	<script src="../vendor/animsition/js/animsition.min.js"></script>
+  	<script src="../vendor/select2/select2.min.js"></script>
+  	<script src="../vendor/daterangepicker/moment.min.js"></script>
+  	<script src="../vendor/daterangepicker/daterangepicker.js"></script>
+  	<script src="../vendor/countdowntime/countdowntime.js"></script>
+    <script src="../js/main.js"></script>
+
+    <!-- Classroom Dependencies -->
+    <!-- <script src="js/courses.js"></script>
+    <script src="js/courses.students.js"></script>
+    <script src="js/courses.announcements.js"></script>
+    <script src="js/courses.courseWork.js"></script>
+    <script src="js/courses.courseWork.studentSubmissions.js"></script>
+    <script src="js/courses.teachers.js"></script>
+    <script src="js/courses.topic.js"></script>
+    <script src="js/courses.aliases.js"></script>
+    <script src="js/invitations.js"></script>
+    <script src="js/userprofiles.js"></script>
+    <script src="js/userprofiles.guardians.js"></script>
+    <script src="js/userprofiles.guardianinvitations.js"></script> -->
+
+    <script>
+    coursesStatusCtx = '';
+    cschart = '';
+    $body = $("body");
+    $('.dropleft').hover(function(){
+      $('.dropdown-toggle', this).trigger('click');
+    });
+    var crs, mid, mPhotoUrl;
+    var courseWorkCounter=[];
+
+    $('#app').empty().html(initDOM());
+
+    function startApp() {
+      $('#nav').empty().html(initNavDOM());
+      coursesArray=[];
+      coursesArray = [];
+      coursesTeachersArray = [];
+      coursesStudentsArray = [];
+      coursesAnnouncementsArray = [];
+      coursescourseWorkArray = [];
+      coursescourseWorkStudentSubmissionsArray = [];
+      coursesTopicsArray = [];
+      coursesAliasesArray = [];
+
+      initCourses();
+    }
+
+    function initCourses() {
+      return gapi.client.classroom.courses.list({})
+      .then(function(response) {
+        // Handle the results here (response.result has the parsed body).
+
+        //get DOM of courses
+        console.log(response);
+        data=response.result.courses;
+
+        if (typeof data !== 'undefined' && data.length > 0) {
+          for(i=0; i<response.result.courses.length; i++){
+            coursesArray.push(response.result.courses[i]);
+          }
+
+
+          //Print Dashboard
+          $('#course-container').empty().html(coursesDOM(response.result.courses));
+
+          //print courses in page
+          $('#chart-container').empty().html(chartsDOM());
+
+          Toast.fire({
+            icon: 'success',
+            title: data.length+' Courses Loaded',
+          });
+
+          setTimeout(initAfterDataLoad, 5000);
+
+        } else {
+          Pop.fire({
+            icon: 'error',
+            title: 'No Courses Found',
+            text: 'Welcome to Teach online Classroom!',
+            footer: 'Create Class or Join Class to use this portal'
+          });
+        }
+        $('[data-toggle="tooltip"]').tooltip();
+        $('.collapse').collapse();
+        stopPreloader();
+      },
+      function(err) { console.error("Execute error", err); });
+    }
+
+
+    function initNavDOM() {
+      var current = gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile();
+      mid=current.getId();
+      mPhotoUrl=current.getImageUrl();
+      print ='<nav class="navbar sticky-top navbar-light">'
+              +'<div class="card text-right navcard">'
+                +'<div class="row m-0" style="padding: 10px;">'
+                  +'<div class="col text-left">'
+                  +'<h5 class="h5-responsive" style="font-weight: 600;">Hi '+current.getGivenName()+'</h5>'
+                  +'</div>'
+                  +'<div class="text-right" style="width:70px">'
+                    +'<div class="dropleft">'
+                      +'<a data-toggle="dropdown" title="menu" aria-haspopup="true" aria-expanded="false"><img src="'+current.getImageUrl()+'" width="50px" class="img-card" style="pointer:cursor;"></button>'
+                      +'<div class="dropdown-menu">'
+                        +'<a class="for-student" class="dropdown-item" href="javascript:void(0)" onclick="popTo-do" style="display:none">To Do</a>'
+                        +'<a class="dropdown-item" href="javascript:void(0)" onclick="Toast.fire({title:'+"'Feature Coming Soon',icon:'success'"+'})">My Calendar</a>'
+                        +'<a class="dropdown-item" href="javascript:void(0)" onclick="history.go(-1)">Go Back</a>'
+                        +'<a class="dropdown-item" href="javascript:void(0)" id="sign-in-or-out-button"> <i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>'
+                      +'</div>'
+                    +'</div>'
+                  +'</div>'
+                +'</div>'
+              +'</div>'
+            +'</nav>';
+
+      return print;
+    }
+
+    function coursesDOM(courses) {
+      console.log('dom call success');
+      print=''; var domain = ["students","teachers","announcements","courseWork","aliases","topics"];
+        for(i=0; i<courses.length; i++){
+          console.log(courses[i]);
+            print+='<div id="course-'+courses[i].id+'" class="col-sm-6 col-md-4 col-lg-3">'
+                    +'<div class="card bg-white mb-3" style="width: auto;">'
+                      +'<div class="card-header">'
+                        +'<div class="row">'
+                          +'<div class="col text-left">'
+                            +'<h5 class="card-title mb-0">'+courses[i].name+' - '+courses[i].section+' <span class="small-span" id="desigCourse-'+courses[i].id+'"></span> </h5>'
+                            +'</i><span id="enrollmentCode-'+courses[i].id+'" code="'+courses[i].enrollmentCode+'" class="class-code bg-light" onclick="Toast.fire({title:'+"'"+courses[i].enrollmentCode+"',icon:'success'"+'})"  data-toggle="tooltip" title="Class Code">'+courses[i].enrollmentCode+'</span></i>'
+                          +'</div>'
+                          +'<div class="col-1 text-right px-0">'
+                            +'<div class="flex-c" style="justify-content: flex-end;">'
+                              +'<div class="dropleft">'
+                                +'<button class="login100-button-a" data-toggle="dropdown" title="Course Settings" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></button>'
+                                print+='<div class="dropdown-menu">';
+                                if (courses[i].courseState=='PROVISIONED') {
+                                  print+='<a class="dropdown-item" href="javascript:void(0)" onclick="activateCourse('+courses[i].id+')">Activate Course</a>';
+                                } else {
+                                  if (courses[i].courseState=='ARCHIVED') {
+                                    print+='<a class="dropdown-item" href="javascript:void(0)" onclick="deleteCourse('+courses[i].id+')">Delete Course</a>';
+                                  } else {
+                                    print+='<a class="dropdown-item" href="javascript:void(0)" onclick="archiveCourse('+courses[i].id+')">Archive Course</a>';
+                                  }
+                                }
+                                print+='<a class="dropdown-item" href="javascript:void(0)" onclick="modalEditCourse('+courses[i].id+')">Edit Course</a>';
+                                print+='</div>'
+                              +'</div>'
+                            +'</div>'
+                          +'</div>'
+                        +'</div>'
+                      +'</div>'
+                     +'<div id="card-body-'+courses[i].id+'" class="card-body">'
+                      +'<div class="accordion" id="accordion-'+courses[i].id+'">';
+                         for (item of domain) {
+                              print+='<div class="card">'
+                                         +'<div class="card-header" id="accordion-heading-'+courses[i].id+'-'+item+'">'
+                                           +'<h2 class="mb-0">'
+                                             +'<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#accordion-collapse-'+courses[i].id+'-'+item+'" aria-expanded="true" aria-controls="accordion-collapse-'+courses[i].id+'-'+item+'">'
+                                              +ucFirst(item)+': <span id="'+courses[i].id+'-'+item+'">0<span>'
+                                             +'</button>'
+                                           +'</h2>'
+                                         +'</div>'
+                                         +'<div id="accordion-collapse-'+courses[i].id+'-'+item+'" class="collapse show" aria-labelledby="accordion-heading-'+courses[i].id+'-'+item+'" data-parent="#accordion-'+courses[i].id+'">'
+                                           +'<div id="accordion-body-list-'+courses[i].id+'-'+item+'" class="card-body course-accordion-body">'
+                                           +'</div>'
+                                         +'</div>'
+                                       +'</div>';
+                        }
+                        print+='</div>'
+                     +'</div>'
+                     +'<div class="card-footer">'
+                       +'<div class="flex-c">'
+                         +'<a class="login100-button-a" href="'+courses[i].alternateLink+'" target="_blank" class="card-text" data-toggle="tooltip" title="Open in google Classroom"><i class="fa fa-link"></i></a>'
+                         +'<div class="dropup">'
+                           +'<button class="login100-button-a" data-toggle="dropdown" title="Manage Online Classes" aria-haspopup="true" aria-expanded="false"><i class="fa fa-video-camera"></i></button>'
+                           +'<div class="dropdown-menu">'
+                             +'<a class="dropdown-item" href="javascript:void(0)" onclick="Toast.fire({title:'+"'Feature Coming Soon',icon:'success'"+'})">Google Meet</a>'
+                             +'<a class="dropdown-item" href="javascript:void(0)" onclick="modalYoutubeAdd('+courses[i].id+')">Youtube</a>'
+                             +'<a class="dropdown-item" href="javascript:void(0)" onclick="Toast.fire({title:'+"'Feature Coming Soon',icon:'success'"+'})">Zoom</a>'
+                           +'</div>'
+                         +'</div>'
+                         +'<a class="login100-button-a" href="javascript:void(0)" data-toggle="tooltip" title="View Class contents in Google Drive"><i class="fa fa-folder"></i></a>'
+                         +'<div class="dropup">'
+                           +'<button class="login100-button-a for-teacher-'+courses[i].id+'" data-toggle="dropdown" title="Manage Members" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users"></i></button>'
+                           +'<div class="dropdown-menu">'
+                             +'<a class="dropdown-item" href="javascript:void(0)" onclick="modalInvitationStudents('+courses[i].id+')">Students</a>'
+                             +'<a class="dropdown-item" href="javascript:void(0)" onclick="modalInvitationTeachers('+courses[i].id+')">Teachers</a>'
+                           +'</div>'
+                         +'</div>'
+                       +'</div>'
+                     +'</div>'
+                    +'</div>'
+                  +'</div>';
+                  getCourseData(courses[i].id);
+          }
+      return print;
+    }
+
+    function coursesCourseWorkDOM() {
+      console.log('coursesCourseWorkDOM call success');
+      console.log('coursesArray'+coursesArray.length);
+      console.log('coursescourseWorkArray'+coursescourseWorkArray.length);
+      console.log('coursescourseWorkStudentSubmissionsArray'+coursescourseWorkStudentSubmissionsArray.length);
+      print='';
+        for(i=0; i<coursesArray.length; i++){
+          console.log('coursesArray - '+i+' - '+coursesArray[i].id);
+          for(j=0; j<coursescourseWorkArray.length; j++){
+            console.log('coursescourseWorkArray courseid - '+i+' - '+coursescourseWorkArray[j].courseId);
+            creationTime = new Date(coursescourseWorkArray[j].creationTime);
+            updateTime = new Date(coursescourseWorkArray[j].updateTime);
+            if (coursescourseWorkArray[j].courseId == coursesArray[i].id && coursescourseWorkArray[j].creatorUserId==mid) {
+              courseWorkGraded=courseWorkAssigned=courseWorkTurnedin=0;
+              print+='<div id="courseWork-'+coursescourseWorkArray[j].id+'" class="col-12 col-md-6">'
+                      +'<div class="card bg-white pt-1 mb-3" style="width: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">'
+                        +'<div class="card-header" style="background: white; ">'
+                          +'<div class="row">'
+                            +'<div class="col-5 px-2 text-left">'
+                              +'<h5 class="card-title mb-0">'+coursescourseWorkArray[j].title+'</h5>'
+                              +'<span class="class-code bg-light" data-toggle="tooltip">'+coursesArray[i].name+' - '+coursesArray[i].section+'</span>'
+                              +'<p>'+creationTime.toString().substring(0,15)+'</p>'
+                            +'</div>'
+                            +'<div class="col-2 p-0 text-left">'
+                              +'<h5 id="assigned-'+coursescourseWorkArray[j].id+'">-</h5>'
+                              +'<p>Assigned</p>'
+                            +'</div>'
+                            +'<div class="col-2 p-0 text-left">'
+                              +'<h5 id="turnedin-'+coursescourseWorkArray[j].id+'">-</h5>'
+                              +'<p>Turned In</p>'
+                            +'</div>'
+                            +'<div class="col-2 p-0 text-left">'
+                              +'<h5 id="graded-'+coursescourseWorkArray[j].id+'">-</h5>'
+                              +'<p>Graded</p>'
+                            +'</div>'
+                            +'<div class="col-1 text-right px-0">'
+                              +'<div class="flex-c" style="justify-content: flex-end;">'
+                                +'<div class="dropleft">'
+                                  +'<button class="login100-button-a" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></button>'
+                                  +'<div class="dropdown-menu">'
+                                    +'<a class="dropdown-item" href="javascript:void(0)" onclick="toggleAccordion('+coursescourseWorkArray[j].id+')"><span id="toggle-span-'+coursescourseWorkArray[j].id+'">Show</span> Submmissions</a>'
+                                    +'<a class="dropdown-item" href="'+coursescourseWorkArray[j].alternateLink+'" target="_blank">Open in Google Classroom</a>'
+                                  +'</div>'
+                                +'</div>'
+                              +'</div>'
+                            +'</div>'
+                          +'</div>'
+                        +'</div>'
+                        +'<div id="card-body-'+coursescourseWorkArray[j].id+'"  class="card-body" style="display:none;">'
+                          +'<div class="accordion" id="accordion-CourseWork-'+coursescourseWorkArray[j].id+'">';
+                            for(k=0; k<coursescourseWorkStudentSubmissionsArray.length; k++){
+                              console.log('coursescourseWorkArray courseid - '+k+' - '+coursescourseWorkStudentSubmissionsArray[k].courseId);
+                              if (coursescourseWorkStudentSubmissionsArray[k].courseId == coursesArray[i].id && coursescourseWorkStudentSubmissionsArray[k].courseWorkId == coursescourseWorkArray[j].id) {
+                                console.log('Found Success courseid - '+k+' - '+coursescourseWorkStudentSubmissionsArray[k].courseId);
+                                print+='<div class="card">'
+                                       +'<div class="card-header" id="accordion-heading-'+coursescourseWorkStudentSubmissionsArray[k].id+'">'
+                                         +'<p class="popUp" data-toggle="collapse" data-target="#accordion-collapse-'+coursescourseWorkStudentSubmissionsArray[k].id+'" aria-expanded="false" aria-controls="accordion-collapse-'+coursescourseWorkStudentSubmissionsArray[k].id+'" style="padding: 6px 8px 12px 6px;">'
+                                          +'<img src="'+getStudentInfo(coursescourseWorkStudentSubmissionsArray[k].userId,'photoUrl')+'" class="img-card img-very-small">'
+                                          +'<span>'+getStudentInfo(coursescourseWorkStudentSubmissionsArray[k].userId,'name').fullName+'</span>'
+                                         +'</p>'
+                                       +'</div>'
+                                       +'<div id="accordion-collapse-'+coursescourseWorkStudentSubmissionsArray[k].id+'" class="collapse show" aria-labelledby="accordion-heading-'+coursescourseWorkStudentSubmissionsArray[k].id+'" data-parent="#accordion-CourseWork-'+coursescourseWorkArray[j].id+'">'
+                                       +'<div id="accordion-body-list-'+coursescourseWorkStudentSubmissionsArray[k].id+'" class="card-body course-accordion-body">';
+                                       console.log('Print Success courseid - '+k+' - '+coursescourseWorkStudentSubmissionsArray[k].courseId);
+                                       console.log('Datacheck1');courseWorkNotCounted=true;
+                                        for (var l = coursescourseWorkStudentSubmissionsArray[k].submissionHistory.length-1; l >=0 ; l--) {
+                                          for(var key in coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l]){
+                                            console.log('Datacheck2');
+                                              if(key=="gradeHistory"){
+                                                if (courseWorkNotCounted) {
+                                                  courseWorkGraded++; courseWorkNotCounted=false;
+                                                }
+                                                console.log('Datacheck3');
+                                                gradeTimestamp=new Date(coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l][key]["gradeTimestamp"]);
+                                                print+='<p>'+(l+1)+' - Graded '+coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l][key]["pointsEarned"]+'/'+coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l][key]["maxPoints"]+' by '+getTeacherInfo(coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l][key]["actorUserId"],'name').fullName+' on '+gradeTimestamp.toString().substring(0,25)+'</p>';
+                                              } else if (key=="stateHistory") {
+                                                console.log('Datacheck4');
+                                                stateTimestamp=new Date(coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l][key]["stateTimestamp"]);
+                                                if (coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l][key]["state"]=="TURNED_IN") {
+                                                   print+='<p>'+(l+1)+' - Turned In by '+getStudentInfo(coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l][key]["actorUserId"],'name').fullName+' on '+stateTimestamp.toString().substring(0,25)+'</p>';
+                                                    if (courseWorkNotCounted) {
+                                                      courseWorkTurnedin++; courseWorkNotCounted=false;
+                                                    }
+                                                } else if (coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l][key]["state"]=="RETURNED"){
+                                                  print+='<p>'+(l+1)+' - Returned by '+getTeacherInfo(coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l][key]["actorUserId"],'name').fullName+' on '+stateTimestamp.toString().substring(0,25)+'</p>';
+                                                } else if (coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l][key]["state"]=="CREATED") {
+                                                  if (courseWorkNotCounted) {
+                                                   courseWorkAssigned++; courseWorkNotCounted=false;
+                                                  }
+                                                  print+='<p>'+(l+1)+' - Assigned to '+getStudentInfo(coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l][key]["actorUserId"],'name').fullName+' on '+stateTimestamp.toString().substring(0,25)+'</p>';
+                                                }
+                                            } else {
+                                              console.log('Datacheck5');
+                                              console.log(coursescourseWorkStudentSubmissionsArray[k].submissionHistory[l]);
+                                            }
+                                          }
+                                        }
+                                  print+='</div>'
+                                       +'</div>'
+                                     +'</div>';
+                              }
+                           }
+                     print+='</div>'
+                        +'</div>'
+                        +'<div id="card-footer-'+coursescourseWorkArray[j].id+'" class="card-footer">';
+                        if (coursescourseWorkArray[j].dueDate != null) {
+                          date = coursescourseWorkArray[j].dueDate.year+" "+coursescourseWorkArray[j].dueDate.month+" "+coursescourseWorkArray[j].dueDate.day;
+                          date = new Date(date);
+                          print+='<p class="mb-0">Due on <span data-toggle="tooltip" title="Created On - '+creationTime.toString().substring(0,15)+', Last Modified - '+updateTime.toString().substring(0,15)+'"> '+date.toString().substring(0,15)+' '+coursescourseWorkArray[j].dueTime.hours+':'+coursescourseWorkArray[j].dueTime.minutes+' </span>  <b style="position: absolute;right: 1.25rem;">'+coursescourseWorkArray[0].maxPoints+' Points</b> </p>';
+                        } else {
+                          print+='<p class="mb-0">Due on <span data-toggle="tooltip" title="Created On - '+creationTime.toString().substring(0,15)+', Last Modified - '+updateTime.toString().substring(0,15)+'"> No Due Date </span>  <b style="position: absolute;right: 1.25rem;">'+coursescourseWorkArray[0].maxPoints+' Points</b> </p>';
+                        }
+                 print+='</div>'
+                      +'</div>'
+                    +'</div>';
+                    console.log('#assigned-'+coursescourseWorkArray[j].id+"-----"+courseWorkAssigned);
+                    console.log('#turnedin-'+coursescourseWorkArray[j].id+"-----"+courseWorkTurnedin);
+                    console.log('#graded-'+coursescourseWorkArray[j].id+"-----"+courseWorkGraded);
+
+                    courseWorkCounter.push({
+                      "id" : coursescourseWorkArray[j].id,
+                      "name" : coursescourseWorkArray[j].title,
+                      "assigned" : courseWorkAssigned,
+                      "turnedin" : courseWorkTurnedin,
+                      "graded" : courseWorkGraded
+                    });
+
+            }
+          }
+        }
+      return print;
+    }
+
+    function modalYoutubeAdd(courseId) {
+      console.log('Modal Clicked');
+      $('#apimodal').empty().html(initModalDOM());
+      $('#apimodaltitle').html('Schedule Youtube Broadcast');
+
+      print='<div class="row">'
+            +'<div class="col-md-12">'
+              +'<div class="form-group">'
+                +'<label>Video Title</label>'
+                +'<input type="text" max="50" value="" id="ytBroadcastTitle" class="form-control">'
+              +'</div>'
+            +'</div>'
+          +'</div>'
+          +'<div class="row">'
+            +'<div class="col-md-6">'
+              +'<div class="form-group">'
+                +'<label>Scheduled Start Time</label>'
+                +'<input value="" type="datetime-local" id="ytBroadcastScheduledStartTime" class="form-control">'
+              +'</div>'
+            +'</div>'
+            +'<div class="col-md-6">'
+            +'<div class="form-group">'
+              +'<label>Scheduled End Time</label>'
+              +'<input value="" type="datetime-local" id="ytBroadcastScheduledEndTime" class="form-control">'
+            +'</div>'
+            +'</div>'
+          +'</div>'
+          +'<div class="row">'
+            +'<div class="col-md-12 text-center">'
+              +'<div class="form-group">'
+                +'<input type="button" onclick="initModalYoutubeAdd('+courseId+')" value="Schedule Broadcast" class="btn btn-primary btn-md" >'
+              +'</div>'
+            +'</div>'
+          +'</div>';
+      $('#apimodalform').empty().html(print);
+      console.log('Modal Form print success');
+      $('#apimodal').modal('show');
+      $('[data-toggle="tooltip"]').tooltip();
+    }
+
+    function initModalYoutubeAdd(courseId) {
+      var current = gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile();
+      console.log('Modal Form init Submitted');
+      title= $("#ytBroadcastTitle").val();
+      date = new Date($("#ytBroadcastScheduledStartTime").val());
+      isoString = date.toISOString();
+      scheduledStartTime= date;
+      date = new Date($("#ytBroadcastScheduledEndTime").val());
+      isoString = date.toISOString();
+      scheduledEndTime= date;
+      description = 'beg-courseId='+courseId+'&ownerId='+current.getId()+'-end';
+      youtubeLiveBroadcastsInsert(title,scheduledStartTime,scheduledEndTime,description);
+    }
+
+    var dateobj = new Date();
+    function youtubeLiveBroadcastsInsert(title,scheduledStartTime,scheduledEndTime,description) {
+      return gapi.client.youtube.liveBroadcasts.insert({
+          "part": "snippet,contentDetails,status",
+          "resource": {
+            "snippet": {
+              "title": title,
+              "scheduledStartTime": scheduledStartTime,
+              "scheduledEndTime": scheduledEndTime,
+              "description": description
+            },
+            "contentDetails": {
+              "enableClosedCaptions": true,
+              "enableContentEncryption": true,
+              "enableDvr": true,
+              "enableEmbed": true,
+              "recordFromStart": true,
+              "startWithSlate": true
+            },
+            "status": {
+              "privacyStatus": "unlisted"
+            }
+          }
+        })
+      .then(function(response) {
+        // Handle the results here (response.result has the parsed body).
+        console.log('Modal Form Submitted');
+        // Handle the results here (response.result has the parsed body).
+        console.log("Response", response);
+        Toast.fire({
+          title:"Youtube Broadcast Schedule Success",
+          icon: "success"
+        });
+        $('#apimodal').modal('hide');
+        initCourses();
+      },
+      function(err) { console.error("Execute error", err);
+        Toast.fire({
+          title:"Youtube Broadcast Schedule Failed",
+          icon: "error"
+        });
+      });
+    }
+
+//pop teacher modal
+function popTeacherDetails(courseId,userId) {
+  console.log('Pop Teacher Clicked');
+
+  $('#apimodal').empty().html(initModalDOM());
+  $('#apimodaltitle').html('Teacher Details');
+  $('#apimodalform').empty().html(coursesTeachersGet(courseId,userId));
+  console.log('Modal Form print success');
+  $('#apimodal').modal('show');
+  $('[data-toggle="tooltip"]').tooltip();
+}
+
+function coursesTeachersGet(courseId,userId) {
+  for (var i = 0; i < coursesTeachersArray.length; i++) {
+    if (coursesTeachersArray[i].courseId == courseId && coursesTeachersArray[i].userId == userId) {
+      print='<form class="login100-form validate-form text-center">'
+              +'<center class="mb-4"><img src="'+coursesTeachersArray[i].profile.photoUrl+'" class="img-card" width="100"></center>'
+              +'<div class="mb-3 text-center"><span class="txt1 p-b-37" style="font-size:14px; color: #4b2354;">'+coursesTeachersArray[i].profile.name.fullName+'<br>'+coursesTeachersArray[i].profile.emailAddress+'</span><br>(Teacher)</div>'
+              +'<div class="flex-c">'
+                +'<a href="mailto:'+coursesTeachersArray[i].profile.emailAddress+'" class="login100-social-item" data-toggle="tooltip" title="Contact"><i class="fa fa-envelope" aria-hidden="true"></i></a>'
+              +'</div>'
+            +'</form>';
+      return print;
+    }
+  }
+}
+
+//pop student modal
+function popStudentDetails(courseId,userId) {
+  console.log('Pop Student Clicked');
+
+  $('#apimodal').empty().html(initModalDOM());
+  $('#apimodaltitle').html('Student Details');
+  $('#apimodalform').empty().html(coursesStudentsGet(courseId,userId));
+  console.log('Modal Form print success');
+  $('#apimodal').modal('show');
+  $('[data-toggle="tooltip"]').tooltip();
+}
+
+function coursesStudentsGet(courseId,userId) {
+  for (var i = 0; i < coursesStudentsArray.length; i++) {
+    if (coursesStudentsArray[i].courseId == courseId && coursesStudentsArray[i].userId == userId) {
+      print='<form class="login100-form validate-form text-center">'
+              +'<center class="mb-4"><img src="'+coursesStudentsArray[i].profile.photoUrl+'" class="img-card" width="100"></center>'
+              +'<div class="mb-3 text-center"><span class="txt1 p-b-37" style="font-size:14px; color: #4b2354;">'+coursesStudentsArray[i].profile.name.fullName+'<br>'+coursesStudentsArray[i].profile.emailAddress+'</span><br>(Student)</div>'
+              +'<div class="flex-c">'
+                +'<a href="mailto:'+coursesStudentsArray[i].profile.emailAddress+'" class="login100-social-item" data-toggle="tooltip" title="Contact"><i class="fa fa-envelope" aria-hidden="true"></i></a>'
+              +'</div>'
+            +'</form>';
+      return print;
+    }
+  }
+}
+
+//pop announcement modal
+function popAnouncement(courseId,announcementId) {
+  console.log('Pop Announcement Clicked');
+
+  $('#apimodal').empty().html(initModalDOM());
+  $('#apimodaltitle').html('AnnouncementID - '+announcementId);
+  $('.modal-footer').hide();
+  $('#apimodalform').empty().html(coursesAnnouncementsGet(courseId,announcementId));
+  console.log('Modal Form print success');
+  $('#apimodal').modal('show');
+  $('[data-toggle="tooltip"]').tooltip();
+}
+
+function coursesAnnouncementsGet(courseId,announcementId) {
+  for (var i = 0; i < coursesAnnouncementsArray.length; i++) {
+    if (coursesAnnouncementsArray[i].courseId == courseId && coursesAnnouncementsArray[i].id == announcementId) {
+      for (var j = 0; j < coursesTeachersArray.length; j++) {
+        if(coursesTeachersArray[j].courseId == courseId && coursesTeachersArray[j].userId == coursesAnnouncementsArray[i].creatorUserId){
+          tempDate = new Date(coursesAnnouncementsArray[i].creationTime);
+
+          print='<div class="card">'
+                  +'<div id="apimodal-card-title" class="card-title" style="background: #f7f7f7;border-radius: .5rem; padding: 8px;">'
+                    +'<div class="row">'
+                      +'<div class="col-2 pl-3 p-t-1 text-center">'
+                        +'<img src="'+coursesTeachersArray[j].profile.photoUrl+'" width="45" class="img-card">'
+                      +'</div>'
+                      +'<div class="col p-1">'
+                        +'<h5>'+coursesTeachersArray[j].profile.name.fullName+'</h5>'
+                        +'<p style="font-weight: 100; font-size: 12px; ">'+tempDate.toString().substring(0,15)+'</p>'
+                      +'</div>'
+                      +'<div class="col-1 text-right px-0 for-teacher-'+courseId+'">'
+                        +'<div class="flex-c" style="padding-right: 30px;">'
+                          +'<div class="dropleft">'
+                            +'<button class="login100-button-a" data-toggle="dropdown" title="Course Settings" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></button>'
+                            +'<div class="dropdown-menu">'
+                              +'<a class="dropdown-item" href="javascript:void(0)" onclick="deleteCoursesAnnouncement('+coursesAnnouncementsArray[i].courseId+','+coursesAnnouncementsArray[i].id+')">Delete Announcement</a>'
+                            +'</div>'
+                          +'</div>'
+                        +'</div>'
+                      +'</div>'
+                    +'</div>'
+                    +'<div class="row py-2">'
+                      +'<div class="col-12">'
+                      +'<h5 style="color: #041d29; font-family: serif; font-size: 18px; padding-left: 10px;">'+coursesAnnouncementsArray[i].text+'</h5>'
+                      +'</div>'
+                    +'</div>'
+                  +'</div>'
+                  +'<div id="apimodal-card-body" class="card-body">'
+                  +'</div>'
+                  +'<div id="apimodal-card-footer" class="card-footer">'
+                    +'<div class="row">'
+                      +'<div class="col-1" style="padding:5px;">'
+                        +'<img src="'+mPhotoUrl+'" width="30" class="img-card">'
+                      +'</div>'
+                      +'<div class="col-10">'
+                        +'<input value="" type="text" id="" class="form-control" placeholder="Add class comments">'
+                      +'</div>'
+                      +'<div class="col-1 col-1 pt-2 p-0" style="cursor:pointer;"><i style="color: #1b6cb5; font-size: 22px;" class="fa fa-paper-plane" aria-hidden="true"></i></div>'
+                    +'</div>'
+                  +'</div>'
+                +'</div>';
+          return print;
+        }
+      }
+    }
+  }
+}
+
+
+function printAllArrays() {
+  console.log(coursesArray);
+  console.log(coursesTeachersArray);
+  console.log(coursesStudentsArray);
+  console.log(coursesAnnouncementsArray);
+  console.log(coursescourseWorkArray);
+  console.log(coursesTopicsArray);
+  console.log(coursesAliasesArray);
+}
+
+function initAfterDataLoad() {
+  printAllArrays();
+  allotPermissions();
+  initCharts();
+
+  $('#courseWork-container').empty().html(coursesCourseWorkDOM());
+  $('[data-toggle="tooltip"]').tooltip();
+  $('.collapse').collapse();
+
+  Toast.fire({
+    title: "Please wait a sec !",
+    icon: "success"
+  });
+
+  setTimeout(setCourseWorkCounter,2000);
+  setTimeout(setCoursesStatusCharts,2000);
+  setTimeout(setCoursesWorkStatusCharts,2000);
+  setTimeout(setCoursesCourseWorkSubmissionCharts,2000);
+  setTimeout(setCoursesStudentTeacherCountCharts,2000);
+
+}
+
+function allotPermissions() {
+  setDesigCourse();
+}
+
+function  setDesigCourse(){
+  for (var i = 0; i < coursesStudentsArray.length; i++) {
+    if (coursesStudentsArray[i].userId == mid) {
+      console.log("setDesigCourse Sudent set success");
+      $('#desigCourse-'+coursesStudentsArray[i].courseId).empty().html("(Student)");
+      $('#coursesWork-'+coursesStudentsArray[i].courseId).addClass('for-student-'+coursesStudentsArray[i].courseId);
+      $('#course-'+coursesStudentsArray[i].courseId).addClass('for-student-'+coursesStudentsArray[i].courseId);
+    }
+  }
+  for (var i = 0; i < coursesTeachersArray.length; i++) {
+    if (coursesTeachersArray[i].userId == mid) {
+      $('#desigCourse-'+coursesTeachersArray[i].courseId).empty().html("(Teacher)");
+      $('#coursesWork-'+coursesTeachersArray[i].courseId).addClass('for-teacher-'+coursesTeachersArray[i].courseId);
+      $('#course-'+coursesTeachersArray[i].courseId).addClass('for-teacher-'+coursesTeachersArray[i].courseId);
+
+    }
+  }
+
+  for (var i = 0; i < coursesStudentsArray.length; i++) {
+    if (coursesStudentsArray[i].userId == mid) {
+      $('.for-teacher-'+coursesStudentsArray[i].courseId).remove();
+    }
+  }
+  for (var i = 0; i < coursesTeachersArray.length; i++) {
+    if (coursesTeachersArray[i].userId == mid) {
+      $('.for-student-'+coursesTeachersArray[i].courseId).remove();
+    }
+  }
+}
+
+function setCourseWorkCounter() {
+  for (var i = 0; i < courseWorkCounter.length; i++) {
+    $('#assigned-'+courseWorkCounter[i].id).empty().html(courseWorkCounter[i].assigned);
+    $('#turnedin-'+courseWorkCounter[i].id).empty().html(courseWorkCounter[i].turnedin);
+    $('#graded-'+courseWorkCounter[i].id).empty().html(courseWorkCounter[i].graded);
+    console.log("courseWorkCounter called");
+    console.log(courseWorkCounter);
+  }
+}
+
+function setCoursesStatusCharts() {
+  var courseStateDataset = [0,0,0,0];
+  console.log("setCoursesStatusCharts called");
+  coursesArray.forEach(function (item){
+    if(item.courseState == "ACTIVE"){
+      courseStateDataset[0]++;
+    } else if(item.courseState == "PROVISIONED"){
+      courseStateDataset[1]++;
+    } else if(item.courseState == "ARCHIVED"){
+      courseStateDataset[2]++;
+    } else{
+      courseStateDataset[3]++;
+    }
+  });
+  console.log(courseStateDataset);
+  cschart.data.datasets[0].data=courseStateDataset;
+  cschart.update();
+}
+
+//coursework status chart
+function setCoursesWorkStatusCharts() {
+  var courseWorkStateDataset = [0,0,0];
+  var courseWorkWorktypeDataset = [0,0,0,0];
+  console.log("setCoursesWorkStatusCharts called");
+  coursescourseWorkArray.forEach(function (item){
+    if(item.state == "PUBLISHED"){
+      courseWorkStateDataset[0]++;
+    } else if(item.state == "DRAFT"){
+      courseWorkStateDataset[1]++;
+    } else{
+      courseWorkStateDataset[2]++;
+    }
+    if(item.workType == "ASSIGNMENT"){
+      courseWorkWorktypeDataset[0]++;
+    } else if(item.workType == "SHORT_ANSWER_QUESTION"){
+      courseWorkWorktypeDataset[1]++;
+    } else if(item.workType == "MULTIPLE_CHOICE_QUESTION"){
+      courseWorkWorktypeDataset[2]++;
+    }else{
+      courseWorkWorktypeDataset[3]++;
+    }
+  });
+  console.log(courseWorkStateDataset);
+  console.log(courseWorkWorktypeDataset);
+  cwschart.data.datasets[0].data=courseWorkStateDataset;
+  cwschart.update();
+  cwwtchart.data.datasets[0].data=courseWorkWorktypeDataset;
+  cwwtchart.update();
+}
+
+//coursework submission report chart
+function setCoursesCourseWorkSubmissionCharts() {
+  console.log("setCoursesCourseWorkSubmissionChartss called");
+  //ccwsrchart.data.dataset.pop();
+  courseWorkCounter.forEach(function(item){
+    ccwsrchart.data.datasets.push({
+      "label": item.name,
+      "data": [item.assigned,item.turnedin,item.graded],
+      "backgroundColor": [
+        chartColors.red,
+        chartColors.orange,
+        chartColors.green
+      ]
+    });
+  });
+  ccwsrchart.update();
+}
+
+//student-teacher count chart
+function setCoursesStudentTeacherCountCharts() {
+  courseDataset={
+    "name": [],
+    "teachers": [],
+    "students": []
+  };
+
+  coursesArray.forEach(function (item){
+    courseDataset.name.push(item.name);
+    teachers=students=0;
+    for (i = 0; i < coursesStudentsArray.length; i++) {
+      if (coursesStudentsArray[i].courseId==item.id) {
+        students++;
+      }
+    }
+    for (i = 0; i < coursesTeachersArray.length; i++) {
+      if (coursesTeachersArray[i].courseId==item.id) {
+        teachers++;
+      }
+    }
+    courseDataset.students.push(students);
+    courseDataset.teachers.push(teachers);
+  });
+
+  console.log("Courses Student-Teacher Count Charts called");
+  console.log(courseDataset);
+  cstcchart.data.labels=courseDataset.name;
+  cstcchart.data.datasets[0].data=courseDataset.students;
+  cstcchart.data.datasets[1].data=courseDataset.teachers;
+  cstcchart.update();
+}
+
+function getStudentInfo(id,key) {
+  for (var i = 0; i < coursesStudentsArray.length; i++) {
+    if (coursesStudentsArray[i].userId==id) {
+      return coursesStudentsArray[i].profile[key];
+    }
+  }
+}
+
+//student-teacher count chart
+// function setCoursesCourseWorkGradingCharts() {
+//
+// }
+
+function getTeacherInfo(id,key) {
+  for (var i = 0; i < coursesTeachersArray.length; i++) {
+    if (coursesTeachersArray[i].userId==id) {
+      return coursesTeachersArray[i].profile[key];
+    }
+  }
+}
+
+function toggleAccordion(id) {
+  status=$('#toggle-span-'+id).html();
+  if (status=='Show') {
+    $('#card-body-'+id).slideDown();
+    $('#toggle-span-'+id).empty().html('Hide');
+  } else {
+    $('#card-body-'+id).slideUp();
+    $('#toggle-span-'+id).empty().html('Show');
+  }
+}
+handleClientLoad();
+
+function ucFirst(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function chartsDOM() {
+  print='';
+  console.log('Charts dom call success');
+        print+='<div class="col-12 col-sm-6 col-md-3">'
+                +'<div class="card bg-white" style="width: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); margin: 6px 0 6px 0px;">'
+                  +'<div id="card-body-chart-coursesStatus" class="card-body p-0">'
+                    +'<canvas id="coursesStatusCanvas"></canvas>'
+                  +'</div>'
+                  //+'<div class="card-footer"></div>'
+                +'</div>'
+              +'</div>'
+              +'<div class="col-12 col-sm-6 col-md-3">'
+                +'<div class="card bg-white" style="width: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); margin: 6px 0 6px 0px;">'
+                    +'<div id="card-body-chart-coursesStatus" class="card-body p-0">'
+                      +'<canvas id="coursesWorkStatusCanvas"></canvas>'
+                    +'</div>'
+                    //+'<div class="card-footer"></div>'
+                  +'</div>'
+                +'</div>'
+              +'<div class="col-12 col-sm-6 col-md-3">'
+                +'<div class="card bg-white" style="width: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); margin: 6px 0 6px 0px;">'
+                    +'<div id="card-body-chart-coursesStatus" class="card-body p-0">'
+                      +'<canvas id="coursesWorkWorktypeCanvas"></canvas>'
+                    +'</div>'
+                    //+'<div class="card-footer"></div>'
+                +'</div>'
+              +'</div>'
+              +'<div class="col-12 col-sm-6 col-md-3">'
+                +'<div class="card bg-white" style="width: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); margin: 6px 0 6px 0px;">'
+                    +'<div id="card-body-chart-coursesStatus" class="card-body p-0">'
+                      +'<canvas id="coursesStudentTeacherCountCanvas"></canvas>'
+                    +'</div>'
+                    //+'<div class="card-footer"></div>'
+                  +'</div>'
+              +'</div>'
+              +'<div class="col-12 col-sm-6 col-md-3">'
+                +'<div class="card bg-white" style="width: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); margin: 6px 0 6px 0px;">'
+                    +'<div id="card-body-chart-coursesStatus" class="card-body p-0">'
+                      +'<canvas id="courseworkSubmissionReportCanvas"></canvas>'
+                    +'</div>'
+                    //+'<div class="card-footer"></div>'
+                +'</div>'
+              +'</div>'
+
+              +'<div class="col-12 col-sm-6 col-md-3">'
+                +'<div class="card bg-white" style="width: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); margin: 6px 0 6px 0px;">'
+                    +'<div id="card-body-chart-coursesStatus" class="card-body p-0">'
+                      +'<canvas id="coursesCourseWorkGradingCanvas"></canvas>'
+                    +'</div>'
+                    //+'<div class="card-footer"></div>'
+                +'</div>'
+              +'</div>';
+  return print;
+}
+
+function initCharts(){
+
+  //courses
+  coursesStatusCtx = document.getElementById('coursesStatusCanvas').getContext('2d');
+  cschart = new Chart(coursesStatusCtx, {
+  type: 'doughnut',
+      data: {
+        labels: [
+          'Active',
+          'Provisioned',
+          'Archived',
+          'Others'
+        ],
+        datasets: [
+                    {
+                      label: 'Courses',
+              				backgroundColor: [
+              					chartColors.green,
+                				chartColors.orange,
+                  			chartColors.red,
+                  			chartColors.grey
+              				],
+                      data: [1,1,1,1]
+                    }
+                  ]
+      },
+
+      // Configuration options go here
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: 'Courses Status Report'
+        },
+        legend:{
+          position: 'left'
+        },
+        animation: {
+  					animateScale: true,
+  					animateRotate: true
+  			},
+        circumference: Math.PI,
+        rotation: -Math.PI
+      }
+  });
+
+  //coursesWork
+  coursesWorkStatusCtx = document.getElementById('coursesWorkStatusCanvas').getContext('2d');
+  cwschart = new Chart(coursesWorkStatusCtx, {
+  type: 'doughnut',
+      data: {
+        labels: [
+          'Published',
+          'Draft',
+          'Others'
+        ],
+        datasets: [
+                    {
+                      label: 'Courses',
+              				backgroundColor: [
+              					chartColors.green,
+                				chartColors.orange,
+                  			chartColors.grey
+              				],
+                      data: [1,1,1]
+                    }
+                  ]
+      },
+
+      // Configuration options go here
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: 'Courses ClassWork Status Report'
+        },
+        legend:{
+          position: 'left'
+        },
+        animation: {
+  					animateScale: true,
+  					animateRotate: true
+  			},
+        circumference: Math.PI,
+        rotation: -Math.PI
+      }
+  });
+
+  //courseswork worktype chart
+  coursesWorkWorktypeCtx = document.getElementById('coursesWorkWorktypeCanvas').getContext('2d');
+  cwwtchart = new Chart(coursesWorkWorktypeCtx, {
+  type: 'pie',
+      data: {
+        labels: [
+          'Assignment',
+          'SAQ',
+          'MCQ',
+          'Others'
+        ],
+        datasets: [
+                    {
+                      label: 'Courses',
+              				backgroundColor: [
+              					chartColors.green,
+                				chartColors.orange,
+                  			chartColors.red,
+                  			chartColors.grey
+              				],
+                      data: [1,1,1,1]
+                    }
+                  ]
+      },
+
+      // Configuration options go here
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: 'Courses Work Type Report'
+        },
+        legend:{
+          position: 'left'
+        },
+        animation: {
+  					animateScale: true,
+  					animateRotate: true
+  			},
+        circumference: Math.PI,
+        rotation: -Math.PI
+      }
+  });
+
+  //student-teacher count
+  coursesStudentTeacherCountCtx = document.getElementById('coursesStudentTeacherCountCanvas').getContext('2d');
+  cstcchart = new Chart(coursesStudentTeacherCountCtx, {
+		type: 'bar',
+		data: {
+      labels: ['CH12', 'PH12', 'MA12'],
+  		datasets: [{
+  			type: 'bar',
+  			label: 'Students',
+  			borderColor: chartColors.green,
+        backgroundColor: chartColors.green,
+  			borderWidth: 2,
+        data: [3,2,3]
+  		}, {
+  			type: 'bar',
+  			label: 'Teachers',
+  			backgroundColor: chartColors.red,
+        backgroundColor: chartColors.red,
+  			borderWidth: 2,
+  			data: [1,2,3]
+  		}]
+    },
+		options: {
+			responsive: true,
+			title: {
+				display: true,
+				text: 'Student-Teacher Chart'
+			},
+			tooltips: {
+				mode: 'index',
+				intersect: true
+			}
+		}
+  });
+
+  //coursework submission report
+  courseWorkSubmissionReportCtx = document.getElementById('courseworkSubmissionReportCanvas').getContext('2d');
+  ccwsrchart = new Chart(courseWorkSubmissionReportCtx, {
+		type: 'doughnut',
+		data: {
+      labels: [
+        'Assigned',
+        'Turned In',
+        'Graded'
+      ],
+  		datasets: []
+    },
+		options: {
+			responsive: true,
+			title: {
+				display: true,
+				text: 'Classwork Submission Report'
+			},
+      legend:{
+        display: false
+      },
+      tooltips: {
+        callbacks: {
+          label: function(item, data) {
+          console.log(data.labels, item);
+            return data.datasets[item.datasetIndex].label+ ": "+ data.labels[item.index]+ ": "+ data.datasets[item.datasetIndex].data[item.index];
+          }
+        }
+      },
+      animation: {
+					animateScale: true,
+					animateRotate: true
+      },
+      circumference: Math.PI,
+      rotation: -Math.PI
+		}
+	});
+
+  //student-coursework grading count
+  coursesCourseWorkGradingCtx = document.getElementById('coursesCourseWorkGradingCanvas').getContext('2d');
+  ccwgchart = new Chart(coursesCourseWorkGradingCtx, {
+		type: 'horizontalBar',
+		data: {
+      labels: ['Student 1', 'Student 2', 'Student 3'],
+  		datasets: [{
+  			label: 'CourseWork 1',
+  			borderColor: chartColors.green,
+        backgroundColor: chartColors.green,
+  			borderWidth: 2,
+        data: [3,2,3]
+  		}]
+    },
+		options: {
+			responsive: true,
+			title: {
+				display: true,
+				text: 'CourseWork Grading Chart'
+			},
+			tooltips: {
+				mode: 'index',
+				intersect: true
+			}
+		}
+	});
+}
+</script>
+
+
+
+
+
+
+
+
+</html>
+
+<!-- sample -->
+
+//courseState dataset
+<!-- var courseStateActive = 0;
+var courseStateProvisioned = 0;
+var courseStateArchive = 0;
+for(var i=0; i<coursesArray.length; i++){
+  if(coursesArray[i].courseState == "ACTIVE")
+      courseStateActive+=1;
+  else if(coursesArray[i].courseState == "PROVISIONED")
+      courseStateProvisioned+=1;
+  else if(coursesArray[i].courseState == "ARCHIVED")
+      courseStateArchive+=1;
+  }
+console.log(courseStateActive);
+console.log(courseStateProvisioned);
+console.log(courseStateArchive); -->
+
+//courseWorkState and courseWorkworkType dataset
+<!-- var courseworkstatePublished = 0;
+var courseworkstateDraft = 0;
+var courseworkworkTypeAssignment = 0;
+var courseworkworkTypeSAQ = 0;
+var courseworkworkTypeMCQ = 0;
+for(var i=0; i<coursescourseWorkArray.length; i++){
+  if(coursescourseWorkArray[i].state == "PUBLISHED")
+    courseworkstatePublished+=1;
+  else
+    courseworkstateDraft+=1;
+  if(coursescourseWorkArray[i].workType == "ASSIGNMENT")
+    courseworkworkTypeAssignment+=1;
+  else if(coursescourseWorkArray[i].workType == "SHORT_ANSWER_QUESTION")
+    courseworkworkTypeSAQ+=1;
+  else courseworkworkTypeMCQ+=1;
+}
+console.log(courseworkstatePublished);
+console.log(courseworkstateDraft);
+console.log(courseworkworkTypeAssignment);
+console.log(courseworkworkTypeSAQ);
+console.log(courseworkworkTypeMCQ);  -->
+
+//course-announcement-state dataset
+<!-- var coursesAnnouncementStatePublished = 0;
+var coursesAnnouncementStateDraft = 0;
+for(var i=0; i<coursescourseWorkArray.length; i++){
+  if(coursesAnnouncementsArray[i].state == "PUBLISHED")
+    coursesAnnouncementStatePublished+=1;
+  else
+  coursesAnnouncementStateDraft+=1
+} -->
